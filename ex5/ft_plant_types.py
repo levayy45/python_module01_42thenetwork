@@ -1,7 +1,5 @@
 class Plant:
-    """
-    Represents a base plant with common attributes.
-    """
+
     def __init__(self, name: str, height: int, age: int) -> None:
         """
         Initializes the plant's name, height, and age.
@@ -27,7 +25,7 @@ class Flower(Plant):
         Displays flower blooming behavior.
         """
         print(
-            f"{self.name} (Flower): "
+            f"{self.name} ({self.__class__.__name__}): "
             f"{self.height}cm, {self.age} days, {self.color} color"
         )
         print(f"{self.name} is blooming beautifully!")
@@ -51,7 +49,7 @@ class Tree(Plant):
         Displays shade area based on trunk diameter.
         """
         print(
-            f"{self.name} (Tree): {self.height}cm, "
+            f"{self.name} ({self.__class__.__name__}): {self.height}cm, "
             f"{self.age} days, {self.trunk_diameter}cm diameter"
         )
         shade = self.trunk_diameter + 28
@@ -78,7 +76,7 @@ class Vegetable(Plant):
         Displays vegetable benefits and harvest season.
         """
         print(
-            f"{self.name} (Vegetable): {self.height}cm, "
+            f"{self.name} ({self.__class__.__name__}): {self.height}cm, "
             f"{self.age} days, {self.harvest_season} harvest"
         )
         print(f"{self.name} is rich in {self.nutritional_value}")

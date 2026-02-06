@@ -1,49 +1,37 @@
 class Plant:
-    """
-    Represents a plant that can grow and age.
-    """
     def __init__(self, name: str, height: int, age: int) -> None:
-        """
-        Initializes a plant with its name, height, and ages.
-        """
         self.name = name
         self.height = height
         self.plant_age = age
 
-    def grow(self, growth_amount: int) -> None:
-        """
-        Increases the plant's height by the specified amount.
-        """
-        self.height += growth_amount
+    def grow(self) -> None:
+        self.height += 1
 
-    def age(self, days: int) -> None:
-        """
-        Increases the plant's age by the specified number of days.
-        """
-        self.plant_age += days
+    def age(self) -> None:
+        self.plant_age += 1
 
-    def get_info(self) -> str:
-        """
-        Returns information about the plant's current state.
-        """
-        return f"{self.name}: {self.height}cm, {self.plant_age} days old"
+    def get_info(self) -> None:
+        print(f"{self.name}: {self.height}cm, {self.plant_age} days old")
 
 
 if __name__ == "__main__":
-    # Create the plant
     rose = Plant("Rose", 25, 30)
-
+    cactus = Plant("Cactus", 15, 20)
+    plants = [rose, cactus]
+    initial_height = [rose.height, cactus.height]
     print("=== Day 1 ===")
-    print(rose.get_info())
 
-    # Simulate a week of growth
-    weekly_growth: int = 6
-    for day in range(1, 7):
-        if day == 6:
-            rose.grow(weekly_growth)
-            rose.age(6)
+    for plant in plants:
+        plant.get_info()
+        for _ in range(6):
+            plant.grow()
+            plant.age()
 
-    # Day 7: Display the updated state of the plant
+    i = 0
     print("=== Day 7 ===")
-    print(rose.get_info())
-    print(f"Growth this week: +{weekly_growth}cm")
+    for plant in plants:
+        plant.get_info()
+        final_height = plant.height
+        growth = final_height - initial_height[i]
+        i += 1
+    print(f"Growth this week: +{growth}cm")
