@@ -21,6 +21,6 @@ if __name__ == "__main__":
     print("=== Plant Factory Output ===")
     for plant in plants:
         print(plant.get_info())
-        count +=1
+        count += 1
 
     print(f"\nTotal plants created: {count}")
